@@ -1,5 +1,5 @@
 
-(function() {
+(function () {
     'use strict';
 
     angular.module('frontend.dashboard', [
@@ -14,13 +14,13 @@
                 $stateProvider
                     .state('dashboard', {
                         url: '/dashboard',
-                        parent : 'frontend',
-                        data : {
+                        parent: 'frontend',
+                        data: {
                             //activeNode : true,
                             //access: 1,
-                            pageName : "Dashboard",
+                            pageName: "Dashboard",
                             //displayName : "dashboard",
-                            prefix : '<i class="material-icons text-primary">dashboard</i>'
+                            prefix: '<i class="material-icons text-primary">dashboard</i>'
                         },
 
                         views: {
@@ -32,8 +32,8 @@
                         },
 
                     })
-                ;
+                    ;
             }
         ])
-    ;
+        ;
 }());
