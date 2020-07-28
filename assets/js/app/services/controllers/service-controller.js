@@ -39,6 +39,11 @@
             icon: 'mdi mdi-account-multiple-outline',
             isVisible: true
           },
+          {
+            name: 'Swagger',
+            icon: 'mdi mdi-information-outline',
+            isVisible: true
+          },
           // {
           //     name : 'Health Checks',
           //     icon : 'mdi mdi-heart-pulse',

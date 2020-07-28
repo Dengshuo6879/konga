@@ -98,7 +98,11 @@
               'healthchecks@services.read': {
                 templateUrl: 'js/app/services/views/service-health-checks.html',
                 controller: 'ServiceHealthChecksController',
-              }
+              },
+              'swagger@services.read': {
+                templateUrl: 'js/app/services/views/service-swagger.html',
+                controller: 'ServiceSwaggerController'
+              },
             }
           })
           .state('services.plugins', {
