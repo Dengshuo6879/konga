@@ -1,12 +1,8 @@
 <div class="row">
     <div class="col-md-3">
         <ul class="nav nav-pills nav-stacked">
-            <li
-                    role="presentation"
-                    data-ng-show="section.isVisible"
-                    ng-class="{'active' : sections[activeSection].name == section.name }"
-                    data-ng-click="showSection($index)"
-                    data-ng-repeat="section in sections">
+            <li role="presentation" data-ng-show="section.isVisible" ng-class="{'active' : sections[activeSection].name == section.name }"
+                data-ng-click="showSection($index)" data-ng-repeat="section in sections">
                 <a href>
                     <i class="{{section.icon}}"></i>
                     <span ng-bind-html="section.name"></span>
@@ -21,6 +17,7 @@
         <div data-ui-view="plugins" ng-if="activeSection == 2"></div>
         <div data-ui-view="consumers" ng-if="activeSection == 3"></div>
         <div data-ui-view="swagger" ng-if="activeSection == 4"></div>
+        <div data-ui-view="params" ng-if="activeSection == 5"></div>
         <!--<div data-ui-view="healthchecks" ng-show="activeSection == 3"></div>-->
 
     </div>

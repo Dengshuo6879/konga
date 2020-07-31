@@ -45,6 +45,11 @@
               if (!config.noAuth) {
                 config.data.token = token;
                 config.headers.authorization = 'Bearer ' + token;
+                // 不需要token的接口，要去掉token
+                if (config.data.notNeedToken) {
+                  delete config.data.token;
+                  delete config.data.notNeedToken;
+                }
               }
 
             }
@@ -62,7 +67,7 @@
           responseError: function responseErrorCallback(response) {
             if (response.status === 401 || response.status === 403) {
 
-              if(response.data && response.data.logout) {
+              if (response.data && response.data.logout) {
                 $localStorage.$reset();
 
                 var $state = $injector.get('$state');
@@ -107,5 +112,5 @@
         };
       }
     ])
-  ;
+    ;
 }());

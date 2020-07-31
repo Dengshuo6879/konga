@@ -40,7 +40,12 @@
             isVisible: true
           },
           {
-            name: 'Swagger',
+            name: 'Swagger Editor',
+            icon: 'mdi mdi-information-outline',
+            isVisible: true
+          },
+          {
+            name: '参数校验',
             icon: 'mdi mdi-information-outline',
             isVisible: true
           },

@@ -84,13 +84,13 @@
             return $http.post('kong/services/', service)
           },
 
-          plugins: function (serviceId,params) {
-            return $http.get('kong/services/' + serviceId + '/plugins',{
+          plugins: function (serviceId, params) {
+            return $http.get('kong/services/' + serviceId + '/plugins', {
               params: params
             })
           },
 
-          consumers: function (serviceId,params) {
+          consumers: function (serviceId, params) {
             return $http.get('api/kong_services/' + serviceId + '/consumers', {
               params: params
             })
@@ -124,9 +124,26 @@
 
           routes: function (serviceId) {
             return $http.get('kong/services/' + serviceId + '/routes')
-          }
+          },
+
+          swaggerGens: function (data) {
+            var config = {
+              headers: { 'Content-Type': 'application/json' },
+            };
+
+            data.notNeedToken = true;
+
+            $http({
+              method: 'PUT',
+              url: `http://47.115.8.86:8001/swagger_gens/${data.key}`,
+              headers: { 'Content-Type': 'application/json' },
+              data,
+            });
+
+
+          },
         }
       }
     ])
-  ;
+    ;
 }());

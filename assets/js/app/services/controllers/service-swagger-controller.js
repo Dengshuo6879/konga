@@ -3,28 +3,37 @@
 
   angular.module('frontend.services')
     .controller('ServiceSwaggerController', [
-      '$scope', '$rootScope', '$log', '$state',
-      function controller($scope, $rootScope, $log, $state) {
+      '$scope', '$rootScope', '$log', 'ServiceService',
+      function controller($scope, $rootScope, $log, ServiceService) {
+
+        $scope.saveJson = function () {
+          const saveAsJsonNode = document.getElementsByClassName('save-as-json');
+          if (saveAsJsonNode && saveAsJsonNode[0]) {
+            saveAsJsonNode[0].click();
+            const prettyJsonContent = localStorage.getItem('prettyJsonContent');   // prettyJsonContent 是在SwaggerEditorBundle组件中定义的
+            localStorage.removeItem('prettyJsonContent');
+
+            const params = {
+              key: $scope.service.name,
+              oas_json: prettyJsonContent
+            }
+
+            ServiceService.swaggerGens(params);
+          }
+        }
 
         function _initSwaggerUI() {
-          SwaggerUIBundle({
-            url: "https://petstore.swagger.io/v2/swagger.json",
-            dom_id: '#swagger-ui',
-            deepLinking: true,
+          SwaggerEditorBundle({
+            dom_id: '#swagger-editor',
+            layout: 'StandaloneLayout',
             presets: [
-              SwaggerUIBundle.presets.apis,
-              SwaggerUIStandalonePreset
-            ],
-            plugins: [
-              SwaggerUIBundle.plugins.DownloadUrl
-            ],
-            layout: "StandaloneLayout"
+              SwaggerEditorStandalonePreset
+            ]
           })
         }
 
         // Init
         _initSwaggerUI();
-
       }
     ]);
 }());

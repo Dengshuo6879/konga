@@ -103,6 +103,10 @@
                 templateUrl: 'js/app/services/views/service-swagger.html',
                 controller: 'ServiceSwaggerController'
               },
+              'params@services.read': {
+                templateUrl: 'js/app/services/views/service-params.html',
+                controller: 'ServiceParamsController'
+              },
             }
           })
           .state('services.plugins', {
