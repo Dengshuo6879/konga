@@ -12,7 +12,7 @@
             saveAsJsonNode[0].click();
             const prettyJsonContent = localStorage.getItem('prettyJsonContent');   // prettyJsonContent 是在SwaggerEditorBundle组件中定义的
             localStorage.removeItem('prettyJsonContent');
-
+            
             const params = {
               key: $scope.service.name,
               oas_json: prettyJsonContent

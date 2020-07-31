@@ -45,7 +45,7 @@
             isVisible: true
           },
           {
-            name: '参数校验',
+            name: '参数验证',
             icon: 'mdi mdi-information-outline',
             isVisible: true
           },

@@ -127,10 +127,6 @@
           },
 
           swaggerGens: function (data) {
-            var config = {
-              headers: { 'Content-Type': 'application/json' },
-            };
-
             data.notNeedToken = true;
 
             $http({
@@ -139,9 +135,7 @@
               headers: { 'Content-Type': 'application/json' },
               data,
             });
-
-
-          },
+          }
         }
       }
     ])
