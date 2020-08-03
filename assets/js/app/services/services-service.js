@@ -135,6 +135,13 @@
               headers: { 'Content-Type': 'application/json' },
               data,
             });
+          },
+          getSwaggerJson: function (key) {
+            return $http({
+              method: 'GET',
+              url: `http://47.115.8.86:8001/swagger_gens/${key}`,
+              headers: { 'Content-Type': 'application/json' },
+            })
           }
         }
       }
