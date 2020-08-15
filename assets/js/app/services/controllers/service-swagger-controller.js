@@ -3,8 +3,8 @@
 
   angular.module('frontend.services')
     .controller('ServiceSwaggerController', [
-      '$scope', '$rootScope', '$log', 'ServiceService',
-      function controller($scope, $rootScope, $log, ServiceService) {
+      '$scope', '$rootScope', '$log', 'ServiceService', 'MessageService',
+      function controller($scope, $rootScope, $log, ServiceService, MessageService) {
 
         $scope.saveJson = function () {
           const saveAsJsonNode = document.getElementsByClassName('save-as-json');
@@ -13,12 +13,19 @@
             const prettyJsonContent = localStorage.getItem('prettyJsonContent');   // prettyJsonContent 是在SwaggerEditorBundle组件中定义的
             localStorage.removeItem('prettyJsonContent');
 
-            const params = {
-              key: $scope.service.name,
-              oas_json: prettyJsonContent
+            if (prettyJsonContent === 'hasErr') {
+              MessageService.error('Swagger JSON存在错误');
+            } else {
+              const params = {
+                key: $scope.service.name,
+                oas_json: prettyJsonContent
+              }
+              ServiceService.swaggerGens(params).then(() => {
+                MessageService.success('Swagger JSON保存成功');
+              }, () => {
+                MessageService.error('Swagger JSON保存失败');
+              });
             }
-
-            ServiceService.swaggerGens(params);
           }
         }
 

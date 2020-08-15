@@ -129,7 +129,7 @@
           swaggerGens: function (data) {
             data.notNeedToken = true;
 
-            $http({
+            return $http({
               method: 'PUT',
               url: `http://47.115.8.86:8001/swagger_gens/${data.key}`,
               headers: { 'Content-Type': 'application/json' },
