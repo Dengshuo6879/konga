@@ -14,16 +14,16 @@
             localStorage.removeItem('prettyJsonContent');
 
             if (prettyJsonContent === 'hasErr') {
-              MessageService.error('Swagger JSON存在错误');
+              MessageService.error('Swagger Json存在错误');
             } else {
               const params = {
                 key: $scope.service.name,
                 oas_json: prettyJsonContent
               }
               ServiceService.swaggerGens(params).then(() => {
-                MessageService.success('Swagger JSON保存成功');
+                MessageService.success('Swagger Json保存成功');
               }, () => {
-                MessageService.error('Swagger JSON保存失败');
+                MessageService.error('Swagger Json保存失败');
               });
             }
           }
@@ -31,7 +31,7 @@
 
         function _SwaggerEditorBundle() {
           SwaggerEditorBundle({
-            // url: 'https://petstore.swagger.io/v2/swagger.json', // 可配置url
+            // url: 'https://petstore.swagger.io/v2/swagger.json', // 可配置url，此处不做配置，在Swagger Editor组件中通过localStorage获取json内容
             dom_id: '#swagger-editor',
             layout: 'StandaloneLayout',
             presets: [
