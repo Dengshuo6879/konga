@@ -86,19 +86,8 @@ body {
 .container-fluid {}
 
 .main-container.container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
+  width: 100%;
 }
-
-@media (min-width: 1200px) {
-  .main-container.container {
-    width: 1280px;
-  }
-}
-
-
-
 
 .text-nowrap {
   white-space: nowrap;
